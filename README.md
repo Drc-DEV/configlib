@@ -17,6 +17,6 @@ Config Library
 
 <relocation>
   <pattern>pro.dracarys.configlib</pattern>
-  <shadedPattern>pro.dracarys.DracarysGUI.shade.configlib</shadedPattern>
+  <shadedPattern>groupid.artifactid.shade.configlib</shadedPattern>
 </relocation>
 ```
