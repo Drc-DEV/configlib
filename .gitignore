@@ -1,2 +1,24 @@
-# Project exclude paths
-/target/
+# maven
+/target
+/build.xml
+#gradle
+/.gradle
+/build
+# netbeans
+/nbproject
+# intellij
+*.iml
+*.ipr
+*.iws
+.idea/
+# eclipse
+/.classpath
+/.project
+/.settings
+# build files
+/build
+/bin
+/dist
+/manifest.mf
+
+javadoc
