@@ -36,8 +36,6 @@ public abstract class CustomFile implements ICustomFile {
             e.printStackTrace();
         }
         reloadConfig();
-        // Register config file to ConfigLib
-        ConfigLib.addFile(this);
     }
 
     public void reloadConfig() {
