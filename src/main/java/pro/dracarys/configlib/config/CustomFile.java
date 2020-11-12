@@ -1,6 +1,5 @@
 package pro.dracarys.configlib.config;
 
-
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import pro.dracarys.configlib.ConfigLib;
@@ -27,11 +26,11 @@ public abstract class CustomFile implements ICustomFile {
             }
             configFile = new File(file, getName() + ".yml");
         } else {
-            configFile = new File(getName() + ".yml");
+            configFile = new File(instance.getDataFolder(), getName() + ".yml");
         }
         try {
             if (!configFile.createNewFile()) {
-                instance.getLogger().log(Level.WARNING, "Config file" + getName() + " .yml is already created.");
+                instance.getLogger().log(Level.WARNING, "Config file " + getName() + ".yml already exists.");
             }
         } catch (IOException e) {
             e.printStackTrace();
