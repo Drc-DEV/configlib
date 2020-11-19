@@ -3,6 +3,7 @@ package pro.dracarys.configlib;
 import org.bukkit.plugin.java.JavaPlugin;
 import pro.dracarys.configlib.config.CustomFile;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,8 +41,9 @@ public class ConfigLib {
             fileMap.get(fileName).init();
     }
 
-    public static void initAll() {
+    public static void initAll(String... excluded) {
         for (CustomFile file : fileMap.values()) {
+            if (excluded != null && Arrays.stream(excluded).anyMatch(s -> file.getName().equalsIgnoreCase(s))) continue;
             file.init();
         }
     }
