@@ -29,8 +29,8 @@ public abstract class CustomFile implements ICustomFile {
             configFile = new File(instance.getDataFolder(), getName() + ".yml");
         }
         try {
-            if (!configFile.createNewFile()) {
-                instance.getLogger().log(Level.WARNING, "Config file " + getName() + ".yml already exists.");
+            if (configFile.createNewFile()) {
+                instance.getLogger().log(Level.INFO, "Creating Config file " + getName() + ".yml");
             }
         } catch (IOException e) {
             e.printStackTrace();
