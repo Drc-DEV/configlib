@@ -1,0 +1,69 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'maven'
+    id 'maven-publish'
+    id "com.github.johnrengelman.shadow" version('6.1.0')
+}
+
+group = project.property("group")
+version = project.property("version")
+sourceCompatibility = project.property("sourceversion")
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url = 'https://repo.codemc.io/repository/nms/' }
+    maven { url = 'https://repo.codemc.io/repository/maven-public/' }
+    maven { url = 'https://jitpack.io' }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.16.5-R0.1-SNAPSHOT'
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            "project.name"       : project.property("name"),
+            "project.groupId"    : project.property("groupid"),
+            "project.artifactId" : project.property("artifactid"),
+            "project.version"    : project.property("version"),
+            "project.description": project.property("description")
+    ]
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.property("groupid")
+            artifactId = project.property("artifactid")
+            version = project.property("version")
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
+jar {
+    archiveFileName.set(project.property("name").toString() + "-lib.jar")
+}
+
+shadowJar {
+    mergeServiceFiles()
+    minimize()
+    archiveFileName.set(project.property("name").toString() + "-${project.version}.jar")
+
+}
+
+build {
+    dependsOn shadowJar
+    dependsOn publish
+}
+
+publish.shouldRunAfter shadowJar
+shadowJar.shouldRunAfter build
