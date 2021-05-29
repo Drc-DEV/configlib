@@ -27,4 +27,5 @@ build {
     dependsOn jar
 }
 
+jar.shouldRunAfter clean
 jar.shouldRunAfter build
