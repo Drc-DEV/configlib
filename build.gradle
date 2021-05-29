@@ -4,6 +4,8 @@ plugins {
     id 'maven-publish'
 }
 
+defaultTasks 'build'
+
 group = project.property("group")
 version = project.property("version")
 sourceCompatibility = project.property("sourceversion")
