@@ -19,10 +19,6 @@ dependencies {
     compileOnly 'org.spigotmc:spigot:1.16.5-R0.1-SNAPSHOT'
 }
 
-jar {
-    archiveFileName.set(project.property("name").toString() + "-${project.version}.jar")
-}
-
 build {
     dependsOn jar
 }
