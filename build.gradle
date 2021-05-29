@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'maven'
 }
 
 group = project.property("group")
@@ -19,9 +20,6 @@ dependencies {
 }
 
 build {
-    dependsOn jar
-}
-publishToMavenLocal {
     dependsOn jar
 }
 
