@@ -11,11 +11,9 @@ sourceCompatibility = project.property("sourceversion")
 compileJava.options.encoding = 'UTF-8'
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven { url = 'https://repo.codemc.io/repository/nms/' }
     maven { url = 'https://repo.codemc.io/repository/maven-public/' }
-    maven { url = 'https://jitpack.io' }
 }
 
 dependencies {
