@@ -1,10 +1,7 @@
 plugins {
     id 'java'
-    id 'idea'
     id 'maven-publish'
 }
-
-defaultTasks 'build'
 
 group = project.property("group")
 version = project.property("version")
@@ -24,6 +21,8 @@ dependencies {
 build {
     dependsOn jar
 }
+publishToMavenLocal {
+    dependsOn jar
+}
 
 jar.shouldRunAfter build
-publishToMavenLocal.shouldRunAfter jar
