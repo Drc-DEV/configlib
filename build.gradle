@@ -26,3 +26,4 @@ build {
 }
 
 jar.shouldRunAfter build
+publishToMavenLocal.shouldRunAfter jar
