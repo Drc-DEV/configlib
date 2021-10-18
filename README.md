@@ -11,7 +11,7 @@ Config Library
 <dependency>
   <groupId>com.github.Drc-DEV</groupId>
   <artifactId>configlib</artifactId>
-  <version>1.1</version>
+  <version>1.9.2</version>
   <scope>compile</scope>
 </dependency>
 
