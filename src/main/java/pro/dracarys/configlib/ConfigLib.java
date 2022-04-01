@@ -1,5 +1,7 @@
 package pro.dracarys.configlib;
 
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import pro.dracarys.configlib.config.CustomFile;
 
@@ -46,6 +48,20 @@ public class ConfigLib {
             if (excluded != null && Arrays.stream(excluded).anyMatch(s -> file.getName().equalsIgnoreCase(s))) continue;
             file.init();
         }
+    }
+
+    private static void sendConsole(String str) {
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', str));
+    }
+
+    public static void printPluginInfo() {
+        sendConsole("&2▆ &2▆ &2▆&2▆ &2▆&2▆&2▆&2▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &4▆&4▆&4▆&4▆ &4▆&4▆ &4▆ &4▆\n");
+        sendConsole("&f➤  &6" + getPlugin().getDescription().getName() + " &7v" + getPlugin().getDescription().getVersion() + "&a Enabled ✔");
+        sendConsole("&f➤  &f&o" + getPlugin().getDescription().getDescription());
+        sendConsole("&f➤  &eMade with &4❤  &eby &f" + String.join(", ", getPlugin().getDescription().getAuthors()));
+        if (getPlugin().getDescription().getVersion().contains("-DEV"))
+            sendConsole("&f➤ &cThis is a BETA, report any unexpected behaviour to the Author!");
+        sendConsole("\n&2▆ &2▆ &2▆&2▆ &2▆&2▆&2▆&2▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &4▆&4▆&4▆&4▆ &4▆&4▆ &4▆ &4▆");
     }
 
 }
