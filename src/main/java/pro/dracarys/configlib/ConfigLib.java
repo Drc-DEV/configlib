@@ -58,10 +58,10 @@ public class ConfigLib {
         sendConsole("&2▆ &2▆ &2▆&2▆ &2▆&2▆&2▆&2▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &4▆&4▆&4▆&4▆ &4▆&4▆ &4▆ &4▆\n");
         sendConsole("&f➤  &6" + getPlugin().getDescription().getName() + " &7v" + getPlugin().getDescription().getVersion() + "&a Enabled ✔");
         sendConsole("&f➤  &f&o" + getPlugin().getDescription().getDescription());
-        sendConsole("&f➤  &eMade with &4❤  &eby &f" + String.join(", ", getPlugin().getDescription().getAuthors()));
+        sendConsole("&f➤  &eMade with &4❤  &eby &f" + String.join(", ", getPlugin().getDescription().getAuthors()) + "\n");
         if (getPlugin().getDescription().getVersion().contains("-DEV"))
-            sendConsole("&f➤ &cThis is a BETA, report any unexpected behaviour to the Author!");
-        sendConsole("\n&2▆ &2▆ &2▆&2▆ &2▆&2▆&2▆&2▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &4▆&4▆&4▆&4▆ &4▆&4▆ &4▆ &4▆");
+            sendConsole("&f➤ &cThis is a BETA, report any unexpected behaviour to the Author!\n");
+        sendConsole("&2▆ &2▆ &2▆&2▆ &2▆&2▆&2▆&2▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &4▆&4▆&4▆&4▆ &4▆&4▆ &4▆ &4▆");
     }
 
 }
