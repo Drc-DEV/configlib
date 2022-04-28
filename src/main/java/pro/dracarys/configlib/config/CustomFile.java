@@ -18,7 +18,6 @@ public abstract class CustomFile implements ICustomFile {
         JavaPlugin instance = ConfigLib.getPlugin();
         if (!instance.getDataFolder().exists())
             instance.getDataFolder().mkdir();
-
         if (parent != null) {
             file = new File(instance.getDataFolder(), File.separator + parent);
             if (!file.exists()) {
@@ -27,6 +26,12 @@ public abstract class CustomFile implements ICustomFile {
             configFile = new File(file, getName() + ".yml");
         } else {
             configFile = new File(instance.getDataFolder(), getName() + ".yml");
+        }
+        if (!configFile.exists()) {
+            try {
+                instance.saveResource(getName() + ".yml", false);
+            } catch (IllegalArgumentException ignored) { // if no default file is provided
+            }
         }
         try {
             if (configFile.createNewFile()) {
